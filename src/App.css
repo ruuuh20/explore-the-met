@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: #E1D1B9;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -20,6 +22,39 @@
 .App-link {
   color: #09d3ac;
 }
+
+.search-form {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.search-bar {
+  width: 30%;
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+   border: 0;
+  border-bottom: 1px #959A94 solid;
+  border-radius: 0;
+}
+
+form input:focus {
+  background-color: transparent;
+}
+
+.search-button {
+  padding: 10px;
+
+}
+
+.art-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .art-image {
-  width: 500px;
+  max-width: 400px;
 }

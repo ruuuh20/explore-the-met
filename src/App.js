@@ -55,14 +55,19 @@ const App = () => {
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
       </form>
-      {art.map(a => (
-        <Art key={a.objectID} title={a.title} image={a.primaryImage} date={a.objectDate} />
-      )
+      <div className="art-list">
+        {art.map(a => (
+          <Art key={a.objectID} title={a.title} image={a.primaryImage} date={a.objectDate} />
+        )
+
+
+    
+   
         
       )}
-   
-     
+      </div>
     </div>
+  
   );
 }
 
