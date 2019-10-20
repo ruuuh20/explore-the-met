@@ -5,7 +5,7 @@ const Art = ({title, image, date}) => {
     return (
         <div className={style.art}>
             
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <p>{date}</p>
             <img className="art-image" src={image} alt=""></img>
         </div>

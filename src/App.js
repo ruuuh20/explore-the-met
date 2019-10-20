@@ -9,7 +9,7 @@ const App = () => {
 
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('fields')
+  const [query, setQuery] = useState('sunflowers')
  
 
   useEffect(() => {
@@ -27,8 +27,10 @@ const App = () => {
   const getArt = () => {
     fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=' + query)
     .then(response => response.json())
+  
     .then(fullResponse => {
       let ids = fullResponse.objectIDs  //array of ids
+      if (ids.length < 100) {
       let collection = ids.map(id => 
         fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + id)
         .then(response => response.json()))
@@ -36,7 +38,12 @@ const App = () => {
         setArt(results)
         // console.log(titles)
       })
+      } else {
+        alert("Please narrow down your search!")
+        return
+      }
     })
+  
   }
 
   const updateSearch = e => {
@@ -51,10 +58,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-        <button className="search-button" type="submit">Search</button>
-      </form>
+      <div className="form-container">
+        <h1>Let's explore the MET</h1>
+        <form onSubmit={getSearch} className="search-form">
+          <input className="search-bar" type="text" value={search} onChange={updateSearch} />
+          <button className="search-button" type="submit">Search</button>
+        </form>
+      </div>
+      <h1>Here are some of the museum's highlights for <span className="query">{query}</span></h1>
       <div className="art-list">
         {art.map(a => (
           <Art key={a.objectID} title={a.title} image={a.primaryImage} date={a.objectDate} />

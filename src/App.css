@@ -23,6 +23,18 @@
   color: #09d3ac;
 }
 
+.form-container {
+  height: 40vh;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container h1 {
+  color: #D09D99;
+}
+
 .search-form {
   min-height: 10vh;
   display: flex;
@@ -35,10 +47,13 @@
   width: 30%;
   border: none;
   padding: 10px;
-  background-color: transparent;
+  background-color: #eee;
    border: 0;
   border-bottom: 1px #959A94 solid;
   border-radius: 0;
+  height: 100%;
+  box-shadow: 0px 8px 15px #666;
+  padding: 10px 20px;
 }
 
 form input:focus {
@@ -56,5 +71,10 @@ form input:focus {
   flex-wrap: wrap;
 }
 .art-image {
-  max-width: 400px;
+  max-width: 300px;
+}
+
+
+.query {
+  color:#56576B;
 }
