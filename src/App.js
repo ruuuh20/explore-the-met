@@ -5,16 +5,17 @@ import Art from './components/Art'
 
 const App = () => {
 
-  useEffect( async () => {
-    getArt();
-    
-  }, [])
+
 
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('sunflowers')
-  const url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers'
+  const [query, setQuery] = useState('fields')
+ 
 
+  useEffect(() => {
+    getArt();
+
+  }, [query])  //only on query
   // const getArt = async () => {
   //   // const response = await fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/500')
   //   const response = await fetch(url)
@@ -24,7 +25,7 @@ const App = () => {
   // }
 
   const getArt = () => {
-    fetch(url)
+    fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=' + query)
     .then(response => response.json())
     .then(fullResponse => {
       let ids = fullResponse.objectIDs  //array of ids
@@ -42,14 +43,20 @@ const App = () => {
     setSearch(e.target.value)
   }
 
+  const getSearch = e => {
+    e.preventDefault();
+    setQuery(search)
+    setSearch('')
+  }
+
   return (
     <div className="App">
-      <form className="search-form">
+      <form onSubmit={getSearch} className="search-form">
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
       </form>
       {art.map(a => (
-        <Art title={a.title} image={a.primaryImage} date={a.objectDate} />
+        <Art key={a.objectID} title={a.title} image={a.primaryImage} date={a.objectDate} />
       )
         
       )}
