@@ -1,26 +1,60 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Art from './components/Art'
 
-function App() {
+const App = () => {
 
-  const url = ''
+  useEffect( async () => {
+    getArt();
+    
+  }, [])
+
+  const [art, setArt] = useState([]);
+  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('sunflowers')
+  const url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers'
+
+  // const getArt = async () => {
+  //   // const response = await fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/500')
+  //   const response = await fetch(url)
+  //   const data = await response.json();
+  //   console.log(data)
+  //   setArt(data)
+  // }
+
+  const getArt = () => {
+    fetch(url)
+    .then(response => response.json())
+    .then(fullResponse => {
+      let ids = fullResponse.objectIDs  //array of ids
+      let collection = ids.map(id => 
+        fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + id)
+        .then(response => response.json()))
+      Promise.all(collection).then(results => {
+        setArt(results)
+        // console.log(titles)
+      })
+    })
+  }
+
+  const updateSearch = e => {
+    setSearch(e.target.value)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="search-form">
+        <input className="search-bar" type="text" value={search} onChange={updateSearch} />
+        <button className="search-button" type="submit">Search</button>
+      </form>
+      {art.map(a => (
+        <Art title={a.title} image={a.primaryImage} date={a.objectDate} />
+      )
+        
+      )}
+   
+     
     </div>
   );
 }
