@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
-  background: #E1D1B9;
+  /* /* background: #E1D1B9;  */
+  
   min-height: 100vh;
 }
 
@@ -24,15 +24,18 @@
 }
 
 .form-container {
-  height: 40vh;
+  min-height: 50vh;
       display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: #56576B;
 }
 
 .form-container h1 {
-  color: #D09D99;
+  /* color: #D09D99; */
+  color: #A6C3B7;
+  font-size: 2.5em;
 }
 
 .search-form {
@@ -40,20 +43,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2em;
 
 }
 
 .search-bar {
-  width: 30%;
+  width: 400px;
   border: none;
   padding: 10px;
-  background-color: #eee;
+  background-color: transparent;
    border: 0;
   border-bottom: 1px #959A94 solid;
   border-radius: 0;
-  height: 100%;
-  box-shadow: 0px 8px 15px #666;
-  padding: 10px 20px;
+  margin-right: 20px;
+  font-size: 1.2em;
+
 }
 
 form input:focus {
@@ -62,6 +66,11 @@ form input:focus {
 
 .search-button {
   padding: 10px;
+  background: transparent;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  color: #eee;
 
 }
 
@@ -76,5 +85,10 @@ form input:focus {
 
 
 .query {
-  color:#56576B;
+  color:#D09D99;
+}
+
+.main-container {
+  padding: 20px;
+
 }

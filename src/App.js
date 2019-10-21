@@ -61,21 +61,28 @@ const App = () => {
       <div className="form-container">
         <h1>Let's explore the MET</h1>
         <form onSubmit={getSearch} className="search-form">
-          <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-          <button className="search-button" type="submit">Search</button>
+          <input className="search-bar" type="text" value={search} onChange={updateSearch} placeholder="ie. sunflowers" />
+          <button className="search-button" type="submit">Explore</button>
         </form>
       </div>
-      <h1>Here are some of the museum's highlights for <span className="query">{query}</span></h1>
+      <div className="main-container">
+        <br/>
+      <h1>Here are some of the museum's highlights for <span className="query">{query} - </span></h1><br/><br/>
       <div className="art-list">
         {art.map(a => (
-          <Art key={a.objectID} title={a.title} image={a.primaryImage} date={a.objectDate} />
+          <Art 
+            key={a.objectID} 
+            title={a.title} 
+            image={a.primaryImage} 
+            date={a.objectDate}
+            country={a.country}
+            department={a.department}
+            artistRole={a.artistRole}
+            artistName={a.artistDisplayName}
+          />
         )
-
-
-    
-   
-        
       )}
+      </div>
       </div>
     </div>
   

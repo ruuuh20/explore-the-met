@@ -1,7 +1,20 @@
 .art {
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    max-width: 40%
+    width: 30%;
+
+    padding: 18px;
+    border: 1px solid #959A94;
+
+}
+
+h3, h4 {
+    margin: 0
+}
+
+h4 {
+    color: #666;
+    text-align: right;
 }

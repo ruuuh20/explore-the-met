@@ -1,13 +1,15 @@
 import React from 'react';
 import style from './art.module.css'
 
-const Art = ({title, image, date}) => {
+const Art = ({ title, image, date, country, department, artistName, artistRole }) => {
     return (
         <div className={style.art}>
-            
-            <h2>{title}</h2>
-            <p>{date}</p>
-            <img className="art-image" src={image} alt=""></img>
+            <h3>{title}</h3>
+            <h4>{artistName}</h4>
+            <h4>{date}</h4><br></br><br></br>
+            <img className="art-image" src={image} alt=""></img><br></br>
+            {country != "" ? <span>Country: {country}</span> : 'Country: not listed'}
+            <span>Dept: {department}</span>
         </div>
     )
 }
