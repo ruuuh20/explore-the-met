@@ -4,38 +4,27 @@
   min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
 
 .form-container {
-  min-height: 50vh;
+  min-height: 60vh;
       display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #56576B;
+    color: rgb(66, 68, 121);
+    background-image: url('the-met-1.jpg');
+      background-size: contain;
+      background-position: center;
+      opacity: 0.7;
 }
 
 .form-container h1 {
   /* color: #D09D99; */
-  color: #A6C3B7;
+  /* color: #A6C3B7; */
   font-size: 2.5em;
+  /* opacity: 1; */
+  /* background: rgb(230, 228, 228, 0.5); */
 }
 
 .search-form {
@@ -44,6 +33,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
+  color: rgb(66, 68, 121);
 
 }
 
@@ -53,10 +43,12 @@
   padding: 10px;
   background-color: transparent;
    border: 0;
-  border-bottom: 1px #959A94 solid;
+  border-bottom: 2px #56576B solid;
   border-radius: 0;
   margin-right: 20px;
   font-size: 1.2em;
+  font-weight: bolder;
+  color: #eee;
 
 }
 
@@ -69,20 +61,21 @@ form input:focus {
   background: transparent;
   font-size: 1.2em;
   cursor: pointer;
-  border: none;
+  border: 3px #eee solid;
   color: #eee;
+ 
+
 
 }
 
 .art-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .art-image {
-  max-width: 300px;
+  max-width: 250px;
 }
-
 
 .query {
   color:#D09D99;
@@ -92,3 +85,15 @@ form input:focus {
   padding: 20px;
 
 }
+
+footer {
+   background: #56576B;
+   color: #eee;
+   min-height: 100px;
+   text-align: center;
+   padding-top: 30px;
+}
+
+.hero {
+margin: 50px
+} 

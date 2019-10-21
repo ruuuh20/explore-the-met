@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Art from './components/Art'
+// import  heroImg  from '../public/the-met-1.jpg'
 
 const App = () => {
 
@@ -65,9 +66,12 @@ const App = () => {
           <button className="search-button" type="submit">Explore</button>
         </form>
       </div>
+      <div className="hero">
+        <h1>Here are some of the museum's highlights for <span className="query">{query} - </span></h1>
+      </div>
       <div className="main-container">
         <br/>
-      <h1>Here are some of the museum's highlights for <span className="query">{query} - </span></h1><br/><br/>
+      
       <div className="art-list">
         {art.map(a => (
           <Art 
@@ -84,6 +88,9 @@ const App = () => {
       )}
       </div>
       </div>
+      <footer>
+        <span>2019 explore-the-met project</span>
+      </footer>
     </div>
   
   );
