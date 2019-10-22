@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Art from './components/Art'
+import Art from './components/Art';
+import Spinner from './Spinner/Spinner';
+import useSpinner from './Spinner/useSpinner'
 // import  heroImg  from '../public/the-met-1.jpg'
 
 const App = () => {
@@ -10,7 +12,8 @@ const App = () => {
 
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('sunflowers')
+  const [query, setQuery] = useState('sunflowers');
+  const [spinner, showSpinner, hideSpinner] = useSpinner()
  
 
   useEffect(() => {
@@ -26,6 +29,8 @@ const App = () => {
   // }
 
   const getArt = () => {
+    showSpinner();
+    setTimeout(() => hideSpinner(), 3000)
     fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=' + query)
     .then(response => response.json())
   
@@ -52,7 +57,11 @@ const App = () => {
   }
 
   const getSearch = e => {
+    
+    
     e.preventDefault();
+    showSpinner();
+   
     setQuery(search)
     setSearch('')
   }
@@ -67,6 +76,7 @@ const App = () => {
         </form>
       </div>
       <div className="hero">
+        {spinner}
         <h1>Here are some of the museum's highlights for <span className="query">{query} - </span></h1>
       </div>
       <div className="main-container">
@@ -83,11 +93,15 @@ const App = () => {
             department={a.department}
             artistRole={a.artistRole}
             artistName={a.artistDisplayName}
+            medium={a.medium}
+            dimensions={a.dimensions}
+            objectURL={a.objectURL}
           />
         )
       )}
       </div>
       </div>
+   
       <footer>
         <span>2019 explore-the-met project</span>
       </footer>

@@ -38,22 +38,28 @@
 }
 
 .search-bar {
-  width: 400px;
+  width: 380px;
   border: none;
   padding: 10px;
   background-color: transparent;
    border: 0;
   border-bottom: 2px #56576B solid;
   border-radius: 0;
-  margin-right: 20px;
+  margin-right: 25px;
   font-size: 1.2em;
   font-weight: bolder;
   color: #eee;
 
 }
 
+form input {
+  transition: all .25s ease-in;
+ 
+}
+
 form input:focus {
   background-color: transparent;
+  transform: scale(1.1);
 }
 
 .search-button {
@@ -63,9 +69,14 @@ form input:focus {
   cursor: pointer;
   border: 3px #eee solid;
   color: #eee;
- 
+  transition: all .25s ease-in;
 
 
+}
+
+.search-button:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .75);
 }
 
 .art-list {
@@ -95,5 +106,10 @@ footer {
 }
 
 .hero {
-margin: 50px
+margin: 50px;
+text-align: center;
 } 
+
+.spinner-container {
+  text-align: center;
+}

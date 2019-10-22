@@ -15,7 +15,13 @@ h3, h4 {
     margin: 0
 }
 
-h4 {
+.info {
     color: #666;
     text-align: right;
+}
+
+.moreButton {
+    width: 50px;
+    border: 0;
+    color: red;
 }
