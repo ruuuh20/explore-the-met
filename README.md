@@ -2,7 +2,7 @@
 
 This project explores the Metropolitan Museum of Art Collection API which provides "select datasets of information on more than 470,000 artworks in its Collection" (https://github.com/metmuseum/openaccess).
 
-Users can search for a query and it returns the artworks that contain the search query. Because there is no search limit as of now, I set a limit at 100 results as it can become endlessly large depending on how broad the search query is.
+Users can search for a query and it returns the artworks that contain the search query. Because there is no search limit as of now, I set a limit at 25 results as it can become endlessly large depending on how broad the search query is.
 Through this project I was able to explore the Open Access API, which allows people to experience the museum online and provides access to thousands of artworks. I wanted to also further explore the concepts of React. 
 
 Demo: https://explore-the-met.herokuapp.com/

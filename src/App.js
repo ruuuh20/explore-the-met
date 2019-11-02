@@ -8,17 +8,13 @@ import useSpinner from './Spinner/useSpinner'
 
 const App = () => {
 
-
-
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('sunflowers');
   const [spinner, showSpinner, hideSpinner] = useSpinner()
  
-
   useEffect(() => {
     getArt();
-
   }, [query])  //only on query
   // const getArt = async () => {
   //   // const response = await fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/500')
@@ -30,13 +26,13 @@ const App = () => {
 
   const getArt = () => {
     showSpinner();
-    setTimeout(() => hideSpinner(), 3000)
+    setTimeout(() => hideSpinner(), 5000)
     fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=' + query)
     .then(response => response.json())
   
     .then(fullResponse => {
       let ids = fullResponse.objectIDs  //array of ids
-      if (ids.length < 100) {
+      if (ids.length < 50) {
       let collection = ids.map(id => 
         fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + id)
         .then(response => response.json()))
@@ -57,8 +53,6 @@ const App = () => {
   }
 
   const getSearch = e => {
-    
-    
     e.preventDefault();
     showSpinner();
    
@@ -69,7 +63,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="form-container">
-        <h1>Let's explore the MET</h1>
+        <h1>Let's explore The MET</h1>
         <form onSubmit={getSearch} className="search-form">
           <input className="search-bar" type="text" value={search} onChange={updateSearch} placeholder="ie. sunflowers" />
           <button className="search-button" type="submit">Explore</button>

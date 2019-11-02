@@ -62,6 +62,11 @@ form input:focus {
   transform: scale(1.1);
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
 .search-button {
   padding: 10px;
   background: transparent;
@@ -109,6 +114,11 @@ footer {
 margin: 50px;
 text-align: center;
 } 
+
+.hero h1 {
+  color: #555;
+  font-weight: 300;
+}
 
 .spinner-container {
   text-align: center;
